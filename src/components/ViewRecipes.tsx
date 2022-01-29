@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { addNewRecipe } from "../redux/recipeSlice";
 import { RootState } from "../redux/store";
 import { RecipeState } from "../types";
+import CreateNewPopup from "./CreateNewPopup";
 import PopupDialog from "./PopupDialog";
 import RecipeCard from "./RecipeCard";
 
@@ -40,7 +41,7 @@ const ViewRecipes = () => {
         { !showButtons && <Button onClick={() => setShowButtons(true)} colorScheme='teal' w='70%' mx='auto'>Add New</Button> }
         { showButtons && <Stack direction='row' spacing={4} align='center' mx='auto'>
           <PopupDialog onAdd={addRecipe}/>
-          <Button variant='outline' colorScheme='teal'>Create New</Button>
+          <CreateNewPopup onAdd={addRecipe} />
         </Stack> }
 
       </Flex>
