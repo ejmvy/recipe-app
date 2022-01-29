@@ -7,11 +7,15 @@ import { Provider } from 'react-redux';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { store } from './redux/store';
 
-// const theme = extendTheme({
-//   styles: {
-
-//   }
-// })
+const theme = extendTheme({
+  styles: {
+    global: {
+      'input': {
+        
+      }
+    }
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>

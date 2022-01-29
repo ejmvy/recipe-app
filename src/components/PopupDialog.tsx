@@ -22,15 +22,10 @@ const PopupDialog = ({ popupInfo, onAdd }: any) => {
   const fetchRecipe = () => {
     axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
     .then((res: any) => {
-      console.log('new:', res.data.meals[0]);
-      console.log('meal:', res.data.meals[0].strMeal);
       setRandomRecipe(res.data.meals[0]);
-      
       onOpen();
     })
     .catch((err: any) => console.log(err));
-    console.log('sve:', randomRecipe);
-      console.log('title:', randomRecipe); 
   }
 
   const saveRecipe = () => {
@@ -39,11 +34,6 @@ const PopupDialog = ({ popupInfo, onAdd }: any) => {
       id: uuidv4(),
     }
     onAdd(newRecipe);
-    onClose();
-  }
-
-  const rejectRecipe = () => {
-    // setRandomRecipe(defaultRecipe);
     onClose();
   }
 
