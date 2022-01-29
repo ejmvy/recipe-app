@@ -7,4 +7,9 @@ export type RecipeState = {
   strCategory: string;
   strInstructions: string;
   strMealThumb: string;
+  [key: string | number]: string | number;
+};
+
+export type IngredientsType = {
+  [key: string | number]: string | number;
 };
