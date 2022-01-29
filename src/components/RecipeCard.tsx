@@ -1,10 +1,12 @@
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { RecipeState } from "../types";
 
-const RecipeCard = ( {recipeInfo } : any) => {
+const RecipeCard = ( {recipeInfo, onOpen } : any) => {
+  
+
   console.log('display,', recipeInfo.strMeal);
   return (
-    <Box w='100%' border='1px' borderColor='gray.200' boxShadow='base' rounded='md' my={4} cursor='pointer'>
+    <Box onClick={() => onOpen(recipeInfo.id)} w='100%' border='1px' borderColor='gray.200' boxShadow='base' rounded='md' my={4} cursor='pointer'>
       <Flex>
         <Image  w='40%' src={recipeInfo.strMealThumb} alt='recipe photo' />
         <Flex p={4} flexDirection='column'>
