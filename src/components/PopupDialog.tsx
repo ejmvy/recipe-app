@@ -1,5 +1,6 @@
 import { Button, Flex, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, useDisclosure } from "@chakra-ui/react";
 import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from "react";
 
 const PopupDialog = ({ popupInfo, onAdd }: any) => {
@@ -18,7 +19,6 @@ const PopupDialog = ({ popupInfo, onAdd }: any) => {
   const [ randomRecipe, setRandomRecipe ] = useState(defaultRecipe);
 
 
-
   const fetchRecipe = () => {
     axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
     .then((res: any) => {
@@ -34,8 +34,11 @@ const PopupDialog = ({ popupInfo, onAdd }: any) => {
   }
 
   const saveRecipe = () => {
-    onAdd(randomRecipe);
-    // setRandomRecipe(defaultRecipe);
+    const newRecipe = {
+      ...randomRecipe,
+      id: uuidv4(),
+    }
+    onAdd(newRecipe);
     onClose();
   }
 
