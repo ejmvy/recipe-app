@@ -1,4 +1,4 @@
-import { Flex, Image, Text } from "@chakra-ui/react"
+import { Flex, Image, Link } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 
 const Header = () => {
@@ -6,9 +6,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <Flex justifyContent='start' m={4}>
+    <Flex justifyContent='space-between' my={4} mx={6}>
       <Image cursor='pointer' onClick={() => navigate('/')} height='50px' src='https://i.ibb.co/tXjJRVf/logo-yummy.png' alt='website logo' />
-      {/* <Text fontSize='md'>View Recipes</Text> */}
+      <Link pb={4} onClick={() => navigate('/view')} fontSize='sm' color='teal'>Recipes</Link>
     </Flex>
 
   )
